@@ -1,4 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+    experimental: {
+        appDir: true,
+        serverActions: true,
+        serverComponentsExternalPackages: ['@prisma/client', 'bcrypt']
+    },
+    images: {
+        domains: [
+            "res.cloudinary.com"
+        ]
+    }
+}
 
 module.exports = nextConfig
