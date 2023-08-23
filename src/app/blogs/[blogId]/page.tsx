@@ -5,6 +5,7 @@ import getCommentByBlogId from '@/actions/getCommentByBlogId'
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai"
 
 import Ads from '@/components/GlobalComponents/Ads/Ads'
+import AdsCard from '@/components/GlobalComponents/Ads/AdsCard'
 import NewsDetails from '@/components/News/NewsDetails'
 import SwiperNews from '@/components/News/SwiperNews'
 import CommentSection from '@/components/Comment/CommentSection'
@@ -33,7 +34,12 @@ const NewsDetailsPage = async ({ params }: {params: IParams}) => {
           />
           <CommentSection blogId={params.blogId} comments={safeComment} />
         </div>
-        <Ads />
+        <div className='hidden lg:block'>
+          <Ads />
+        </div>
+        <div className="grid items-center justify-center bg-light-white py-5 gap-8 mt-5 lg:hidden">
+          <AdsCard image="/banner-ads.jpg" link="/contact" />
+        </div> 
       </div>
       <div>
         <div className="mt-8 flex justify-between">

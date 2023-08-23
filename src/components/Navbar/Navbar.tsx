@@ -57,7 +57,7 @@ const Navbar = () => {
         {/* Menu */}
         {navOpen ? <div className='bg-black/80 fixed w-full h-screen z-50 top-0 left-0'></div> : ''}
 
-        <div className={navOpen ? 'fixed top-0 left-0 w-[300px] h-screen bg-light-white-twote-two z-50 duration-300 text-black' : 'fixed top-0 left-[-100%] w-[300px] h-screen bg-light-white-two z-50 duration-300 text-white'}>          
+        <div className={navOpen ? 'fixed top-0 left-0 w-[300px] h-screen bg-light-white-two z-50 duration-300 text-black' : 'fixed top-0 left-[-100%] w-[300px] h-screen bg-light-white-two z-50 duration-300 text-white'}>          
             <AiOutlineClose className={`bg-white text-dark-purple text-3xl rounded-full absolute -right-3 top-5 border-2 border-dark-purple cursor-pointer `} onClick={() => setNavOpen(!navOpen)} />
             <h2 className='text-3xl p-4 font-bold'>
                 Eduardo M

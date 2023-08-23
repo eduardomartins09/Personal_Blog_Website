@@ -3,6 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation"
 
 import Ads from "@/components/GlobalComponents/Ads/Ads"
+import AdsCard from "@/components/GlobalComponents/Ads/AdsCard"
 import CustomButton from "@/components/GlobalComponents/Buttons/CustomButton"
 
 const ErrorsPage = () => {
@@ -41,7 +42,12 @@ const ErrorsPage = () => {
           )
         }
       </div>
-      <Ads />
+      <div className="hidden lg:block">
+        <Ads />
+      </div>
+      <div className="grid items-center justify-center bg-light-white py-5 gap-8 mt-5 lg:hidden">
+        <AdsCard image="/banner-ads.jpg" link="/contact" />
+      </div> 
     </main>
   )
 }

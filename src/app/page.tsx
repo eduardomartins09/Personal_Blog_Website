@@ -34,10 +34,10 @@ export default async function Home({ searchParams }: { searchParams: { page: str
   return (
     <main className="px-5 sm:px-20 py-8 bg-white text-black">
       <div className="flex items-center gap-3 mt-16 md:mt-0">
-        <div className="bg-dark-black text-light-white p-3 4] text-2xl font-bold">
+        <div className="bg-dark-black text-light-white p-3 text-sm sm:text-2xl font-bold">
           TRENDING
         </div>
-        <p className="text-lg font-semibold lg:text-xl">
+        <p className="text-sm sm:text-lg font-semibold lg:text-xl">
           Most recent blogs
         </p>
       </div>
@@ -56,17 +56,17 @@ export default async function Home({ searchParams }: { searchParams: { page: str
                 </>
               ))}    
             </div>
-          </div>  
+          </div>        
         </div>       
-        <div>
+        <div className="hidden lg:block">
           <Ads />
         </div>
       </div>
       <div className="flex items-center gap-3 text-black mt-10">
-        <div className="bg-dark-black p-3 text-light-white text-2xl font-bold">
+        <div className="bg-dark-black p-3 text-light-white text-sm sm:text-2xl font-bold">
           TRENDING CATEGORIES
         </div>
-        <p className="text-lg font-semibold lg:text-xl">
+        <p className="text-sm sm:text-lg font-semibold lg:text-xl">
           Most recent blogs
         </p>
       </div>  
@@ -97,7 +97,7 @@ export default async function Home({ searchParams }: { searchParams: { page: str
         </div>        
       </div>
       <SeeMoreNews />
-      <div className="grid items-center justify-center bg-light-white py-5 gap-8 mt-5">
+      <div className="grid items-center justify-center bg-light-white py-5 gap-8 mt-5 lg:hidden">
         <AdsCard image="/banner-ads.jpg" link="/contact" />
       </div>                    
     </main>

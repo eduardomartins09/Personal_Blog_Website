@@ -25,7 +25,7 @@ const NewsDetails = async ({ name, description, createdAt, imageSrc, categoryNam
     <div className='p-2'>
       <div className="flex flex-col pb-4">
         <div className='bg-red-700 p-4'>
-          <h1 className={`text-3xl font-semibold text-white mb-2 ${dosis.className}`}>{name}</h1>
+          <h1 className={`text-xl md:text-3xl font-semibold text-white mb-2 ${dosis.className}`}>{name}</h1>
         </div>
         <div className='flex items-center justify-between my-4'>
           <p className='font-semibold uppercase'>{categoryName}</p>

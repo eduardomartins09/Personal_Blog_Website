@@ -8,6 +8,7 @@ import ShowMore from '@/components/ShowMore/ShowMore'
 import CustomFilter from "@/components/GlobalComponents/CustomFilter/CustomFilter"
 import NewsBigCard from "@/components/News/NewsBigCard"
 import NewsMainCard from "@/components/News/NewsMainCard"
+import AdsCard from "@/components/GlobalComponents/Ads/AdsCard"
 
 import { formartDateHome } from "@/utils"
 
@@ -33,7 +34,7 @@ const CategoryPage = async ({ params }: {params: IParams}) => {
   return (
     <main className="px-5 sm:px-20 py-8 bg-white text-black mt-16 md:mt-0">
       <div className="flex items-center gap-3 bg-light-white mb-4">
-        <h1 className="bg-dark-black p-3 text-light-white text-2xl font-bold uppercase">
+        <h1 className="bg-dark-black p-3 text-light-white text-sm sm:text-2xl font-bold uppercase">
           {categoryName}
         </h1>     
       </div>
@@ -67,10 +68,13 @@ const CategoryPage = async ({ params }: {params: IParams}) => {
             />  
           </div>
         </div>
-        <div>
+        <div className="hidden lg:block">
           <Ads />
         </div>
       </div>
+      <div className="grid items-center justify-center bg-light-white py-5 gap-8 mt-5 lg:hidden">
+        <AdsCard image="/banner-ads.jpg" link="/contact" />
+      </div>                     
     </main>
   )
 }

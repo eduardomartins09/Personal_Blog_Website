@@ -7,6 +7,7 @@ import ShowMore from "@/components/ShowMore/ShowMore"
 import NewsHorizontalCard from "@/components/News/NewsHorizontalCard"
 
 import { formartDateHome } from "@/utils"
+import AdsCard from "@/components/GlobalComponents/Ads/AdsCard"
 
 const SearchPage = async ({ searchParams }: { searchParams: { search: string | undefined, page: string, limit: string } }) => {
   const page = parseInt(searchParams.page) || 1
@@ -39,10 +40,13 @@ const SearchPage = async ({ searchParams }: { searchParams: { search: string | u
             />  
           </div>
         </div>
-        <div>
+        <div className="hidden lg:block">
           <Ads />
         </div>
-      </div>    
+      </div>
+      <div className="grid items-center justify-center bg-light-white py-5 gap-8 mt-5 lg:hidden">
+        <AdsCard image="/banner-ads.jpg" link="/contact" />
+      </div>     
     </main>
   )
 }
