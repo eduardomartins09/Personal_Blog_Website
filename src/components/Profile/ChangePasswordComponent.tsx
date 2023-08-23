@@ -32,9 +32,9 @@ const ChangePasswordComponent = () => {
         <h1 className="text-2xl bg-red-600 p-4">Change Password</h1>
         <div className="flex flex-col max-w-[500px] justify-center mx-auto gap-2 p-8">
           <Form action={handleChangePassword}>
-            <Input placeholder="Old Password" name="old_password" id="old_password" type="password" containerStyles={"px-4 py-2 rounded-xl"} />
-            <Input placeholder="New Password" name="new_password" id="new_password" type="password" containerStyles={"px-4 py-2 rounded-xl mt-4"} />
-            <ButtonForm value="Change Password" className="my-4 border-2 border-gray-700 p-4 text-lg font-semibold rounded-full w-full hover:bg-slate-900 hover:text-white" />
+            <Input placeholder="Old Password" name="old_password" id="old_password" type="password" containerStyles={"bg-light-white px-4 py-2 rounded-xl"} />
+            <Input placeholder="New Password" name="new_password" id="new_password" type="password" containerStyles={"bg-light-white px-4 py-2 rounded-xl mt-4"} />
+            <ButtonForm value="Change Password" className="my-4 border-2 border-gray-700 p-4 text-lg font-semibold rounded-full w-full hover:bg-gray-100" />
           </Form>
         </div>
       </div>  

@@ -10,7 +10,7 @@ const CreateBlog = async () => {
   if (session?.user?.role !== "admin") redirect("/errors?error=Page Not Found")
   
   return (
-    <main className='py-12 px-8 bg-slate-800 text-white'>
+    <main className='px-5 sm:px-20 py-8 bg-white text-black mt-16 md:mt-0'>
       <NewsCreateCard />
     </main>
   )

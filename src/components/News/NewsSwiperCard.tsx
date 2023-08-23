@@ -3,9 +3,9 @@ import Link from 'next/link'
 
 import { formartDateHome } from '@/utils'
 
-import { NewsCardProps } from '@/types'
+import { NewsSwiperCardProps } from '@/types'
 
-const NewsCard = ({ image, headline, date, linkId, notSwiper }: NewsCardProps) => {
+const NewsSwiperCard = ({ image, headline, date, linkId, notSwiper }: NewsSwiperCardProps) => {
   const home = "h-[130px] sm:h-[150px] md:h-[120px] xl:h-[140px]"
   const swiper = "h-[130px] md:h-[150px] xl:h-[130px]"
 
@@ -33,4 +33,4 @@ const NewsCard = ({ image, headline, date, linkId, notSwiper }: NewsCardProps) =
   )
 }
 
-export default NewsCard
+export default NewsSwiperCard

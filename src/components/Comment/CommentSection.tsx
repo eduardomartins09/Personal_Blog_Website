@@ -67,14 +67,14 @@ const CommentSection = ({ blogId, comments }: CommentSectionProps) => {
   }
 
   return (
-    <section className="mt-8 flex flex-col justify-center items-center border-2 border-[#555] rounded-2xl">
-      <form className="p-4 w-full flex items-center border-b-2 gap-4 border-[#555]" onSubmit={onSubmit}>
-        <Image src={session?.user?.image || "https://res.cloudinary.com/dbiffor7h/image/upload/f_auto,q_auto/rvbjadkse4u66wotcbv0"} width='45' height='45' alt="image-author-comment" className='object-cover rounded-full border-2 border-[#555]' />
-        <Input placeholder='Comment' id='text' type='text' value={state.text} name='text' onChange={handleChange} containerStyles={"px-4 py-2 rounded-xl"} />
+    <section className="mt-8 flex flex-col justify-center items-center border-2 border-light-gray rounded-2xl">
+      <form className="p-4 w-full flex items-center border-b-2 gap-4 border-light-gray" onSubmit={onSubmit}>
+        <Image src={session?.user?.image || "https://res.cloudinary.com/dbiffor7h/image/upload/f_auto,q_auto/rvbjadkse4u66wotcbv0"} width='45' height='45' alt="image-author-comment" className='object-cover rounded-full border-2 border-light-gray' />
+        <Input placeholder='Comment' id='text' type='text' value={state.text} name='text' onChange={handleChange} containerStyles={"bg-light-white px-4 py-2 rounded-xl"} />
         <CustomButton
           title='Post'
           btnType='submit'
-          containerStyles='my-4 border-2 border-gray-700 px-8 py-4 text-lg font-semibold rounded-full hover:bg-gray-700 hover:text-white'
+          containerStyles='my-4 border-2 border-gray-700 px-8 py-2 text-lg font-semibold rounded-full hover:bg-gray-100 '
         />
       </form>
       <div className="max-h-[300px] overflow-auto mt-2 w-full p-4 flex flex-col items-center gap-4">
@@ -87,7 +87,7 @@ const CommentSection = ({ blogId, comments }: CommentSectionProps) => {
             ))
           )
           : (
-            <h4 className="p-4 text-2xl text-white">No comments. Be the first one to leave a comment!</h4>
+            <h4 className="p-4 text-2xl">No comments. Be the first one to leave a comment!</h4>
           )
         }    
       </div>       

@@ -70,30 +70,30 @@ const NewsEditCard = ({ name, description, imageSrc, blogId, categoryName }: New
   }
 
   return (
-    <div className="py-12 px-8 bg-blue-200 flex flex-col gap-4">
-        <form onSubmit={onSubmit} className="bg-blue-200">
-            <div>
-                <ImageUpload value={state.imageSrc} onChange={(value) => setCustomValue('imageSrc', value)} />
-            </div>
-            <div className="flex flex-col justify-center mx-auto gap-2 mt-4">
-                <Input placeholder="Blog Headline" name="name" id="name" type="text" onChange={handleChange} value={state.name} containerStyles={"px-4 py-2 rounded-xl"} />
-                <Input placeholder='Blog category' id='categoryName' type='text' value={state.categoryName} name='categoryName' onChange={handleChange} containerStyles={"px-4 py-2 rounded-xl"} />
-                <div className='max-w-[100%] mb-4 text-black' tabIndex={1}>
-                    <JoditEditor
-                      ref={editor}
-                      value={state.description}
-                      config={config}                  
-                      onBlur={(newContent) => setState({ ...state, description: newContent })}
-                    /> 
-                </div>
-            </div>
-            <CustomButton
-                title='Submit'
-                btnType='submit'
-                containerStyles='border-2 border-gray-700 p-4 text-lg font-semibold rounded-full w-full hover:bg-gray-700 hover:text-white'
-            />
-        </form> 
-        <ToastContainer />
+    <div className="px-5 sm:px-20 py-8 mt-16 md:mt-0 bg-blue-200 flex flex-col gap-4">
+      <form onSubmit={onSubmit} className="bg-blue-200">
+          <div>
+              <ImageUpload value={state.imageSrc} onChange={(value) => setCustomValue('imageSrc', value)} />
+          </div>
+          <div className="flex flex-col justify-center mx-auto gap-2 mt-4">
+              <Input placeholder="Blog Headline" name="name" id="name" type="text" onChange={handleChange} value={state.name} containerStyles={"bg-light-white px-4 py-2 rounded-xl"} />
+              <Input placeholder='Blog category' id='categoryName' type='text' value={state.categoryName} name='categoryName' onChange={handleChange} containerStyles={"bg-light-white px-4 py-2 rounded-xl"} />
+              <div className='max-w-[100%] mb-4 text-black' tabIndex={1}>
+                  <JoditEditor
+                    ref={editor}
+                    value={state.description}
+                    config={config}                  
+                    onBlur={(newContent) => setState({ ...state, description: newContent })}
+                  /> 
+              </div>
+          </div>
+          <CustomButton
+              title='Submit'
+              btnType='submit'
+              containerStyles='border-2 border-gray-700 p-4 text-lg font-semibold rounded-full w-full hover:bg-gray-100'
+          />
+      </form> 
+      <ToastContainer />
     </div>
   )
 }

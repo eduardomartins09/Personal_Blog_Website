@@ -48,7 +48,7 @@ export interface InitialStateCreateAndEditProps {
   categoryName: string
 }
 
-export interface NewsCardProps {
+export interface NewsSwiperCardProps {
   image: string
   headline: string
   date: string

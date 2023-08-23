@@ -1,8 +1,10 @@
 import getBlogs from "@/actions/getBlogs"
 
 import Ads from "@/components/GlobalComponents/Ads/Ads"
-import NewsCard from "@/components/News/NewsCard"
+import NewsHorizontalCard from "@/components/News/NewsHorizontalCard"
 import ShowMore from '@/components/ShowMore/ShowMore'
+
+import { formartDateHome } from "@/utils"
 
 export default async function BlogsHome({ searchParams }: { searchParams: { page: string, limit: string } }) {
   const page = parseInt(searchParams.page) || 1
@@ -12,22 +14,17 @@ export default async function BlogsHome({ searchParams }: { searchParams: { page
   const { safeBlogs, totalCount } = await getBlogs(page, limit)
      
   return (
-    <main className="p-8 bg-slate-800 text-white">
-      <div className='bg-gray-700 p-4 mb-4'>
-        <h1 className='text-2xl font-medium'>Recently</h1>
+    <main className="px-5 sm:px-20 py-8 bg-white text-black mt-16 md:mt-0">
+      <div className="flex items-center gap-3 bg-light-white mb-4">
+        <h1 className="bg-dark-black p-3 text-light-white text-2xl font-bold">
+          ALL BLOGS
+        </h1>     
       </div>
-      <div className="grid lg:grid-cols-[minmax(0,_1fr)_300px] gap-8">
+      <div className="grid lg:grid-cols-[minmax(0,_1fr)_350px] gap-8">
         <div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
+          <div className="grid gap-8 mt-4">
             {safeBlogs.map((blog) => (
-              <NewsCard
-                image={blog.imageSrc} 
-                headline={blog.name} 
-                date={blog.createdAt} 
-                linkId={blog.id} 
-                notSwiper={true}
-                key={blog.id}
-              />
+              <NewsHorizontalCard key={blog.id} link={blog.id} image={blog.imageSrc} headline={blog.name} date={formartDateHome(blog.createdAt)} />
             ))}
           </div>
           <div>

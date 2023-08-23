@@ -70,8 +70,8 @@ const NewsCreateCard = () => {
         <ImageUpload value={state.imageSrc} onChange={(value) => setCustomValue('imageSrc', value)} />
       </div>
       <div className='flex flex-col justify-center  mx-auto gap-2 mt-4'>
-        <Input placeholder='Blog Headline' id='name' type='text' value={state.name} name='name' onChange={handleChange} containerStyles={"px-4 py-2 rounded-xl"} />
-        <Input placeholder='Blog category' id='categoryName' type='text' value={state.categoryName} name='categoryName' onChange={handleChange} containerStyles={"px-4 py-2 rounded-xl"} />
+        <Input placeholder='Blog Headline' id='name' type='text' value={state.name} name='name' onChange={handleChange} containerStyles={"bg-light-white px-4 py-2 rounded-xl"} />
+        <Input placeholder='Blog category' id='categoryName' type='text' value={state.categoryName} name='categoryName' onChange={handleChange} containerStyles={"bg-light-white px-4 py-2 rounded-xl"} />
         <div className='max-w-[100%] mb-4 text-black' tabIndex={1}>
           <JoditEditor
             ref={editor}
@@ -83,7 +83,7 @@ const NewsCreateCard = () => {
         <CustomButton
           title='Submit'
           btnType='submit'
-          containerStyles='border-2 border-gray-700 p-4 text-lg font-semibold rounded-full w-full hover:bg-gray-700 hover:text-white'
+          containerStyles='border-2 border-gray-700 p-4 text-lg font-semibold rounded-full w-full hover:bg-gray-100'
         />
       </div>
       <ToastContainer />

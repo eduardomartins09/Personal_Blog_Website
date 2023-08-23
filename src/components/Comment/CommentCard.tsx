@@ -37,13 +37,13 @@ const CommentCard = ({ commentId, userId, text, image, authorName, createdAt }: 
   }
 
   return (
-    <div className="w-full h-full border-2 border-[#555] rounded-md p-3">
+    <div className="w-full h-full border-2 border-light-gray rounded-md p-3">
       <div className="w-full h-full flex justify-between items-center">
         <div className="flex gap-4">
           <Image src={image} width='45' height='45' alt="image-author-comment" className='w-[40px] h-[40px] rounded-full object-cover' />
           <div className="flex flex-col items-start gap-1">
             <h4>{authorName}</h4>
-            <span className="text-sm text-[#555]">{formartDateHome(createdAt)}</span>
+            <span className="text-sm text-light-gray">{formartDateHome(createdAt)}</span>
           </div>
           <span>{text}</span>
         </div>

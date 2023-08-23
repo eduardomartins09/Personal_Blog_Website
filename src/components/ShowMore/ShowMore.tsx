@@ -36,7 +36,7 @@ const ShowMore = ({ pageNumber, isNext , numberOfButtons }: ShowMoreProps) => {
   }
 
   return (
-    <div className="w-full flex flex-wrap justify-center items-center gap-1 sm:gap-5 mt-10 bg-gray-700 rounded-xl">              
+    <div className="w-full flex flex-wrap justify-center items-center gap-1 sm:gap-5 mt-10 bg-light-white rounded-xl">              
       <button onClick={() => goFowardOrBackwards('backwards')} className="p-1 sm:p-4">
         <AiOutlineArrowLeft className="cursor-pointer text-lg sm:text-2xl" />
       </button>

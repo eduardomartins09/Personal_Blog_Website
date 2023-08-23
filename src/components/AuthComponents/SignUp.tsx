@@ -29,8 +29,10 @@ const SignUp = ({ session }) => {
     const res = await signUpWithCredentials(name, email, password)
     
     if (res?.msg) {
-        toast.success(res?.msg)
-        router.push("/auth/login")
+      toast.success(res?.msg)
+      setTimeout(() => {
+        router.push("/")
+      }, 2000)
     } 
   }
 
@@ -40,10 +42,10 @@ const SignUp = ({ session }) => {
         <h1 className="text-2xl bg-red-600 p-4">Register</h1>
         <Form action={handleSignUpCredentials}>
             <div className="flex flex-col max-w-[500px] justify-center mx-auto gap-2 p-8">
-                <Input placeholder="Name" name="name" id="name" type="text" containerStyles={"px-4 py-2 rounded-xl"} />
-                <Input placeholder="Email" name="email" id="email" type="email" containerStyles={"px-4 py-2 rounded-xl"} />
-                <Input placeholder="Password" name="password" id="password" type="password" containerStyles={"px-4 py-2 rounded-xl"} />        
-                <ButtonForm value="Sign Up" className="my-4 border-2 border-gray-700 p-4 text-lg font-semibold rounded-full w-full hover:bg-slate-900 hover:text-white" />
+                <Input placeholder="Name" name="name" id="name" type="text" containerStyles={"bg-light-white px-4 py-2 rounded-xl"} />
+                <Input placeholder="Email" name="email" id="email" type="email" containerStyles={"bg-light-white px-4 py-2 rounded-xl"} />
+                <Input placeholder="Password" name="password" id="password" type="password" containerStyles={"bg-light-white px-4 py-2 rounded-xl"} />        
+                <ButtonForm value="Sign Up" className="my-4 border-2 border-gray-700 p-4 text-lg font-semibold rounded-full w-full hover:bg-gray-100" />
             </div>
         </Form>
         <div className="p-8">

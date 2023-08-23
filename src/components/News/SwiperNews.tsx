@@ -1,6 +1,6 @@
 'use client'
 
-import NewsCard from "./NewsCard"
+import NewsSwiperCard from "./NewsSwiperCard"
 
 // import Swiper core and required modules
 import { Navigation, Pagination } from 'swiper'
@@ -43,7 +43,7 @@ const SwiperNews = ({ data }: SwiperNewsProps) => {
         <div>
             {data.map((blog) => (
                 <SwiperSlide key={blog.id}>
-                    <NewsCard  
+                    <NewsSwiperCard  
                         image={blog.imageSrc} 
                         headline={blog.name} 
                         date={blog.createdAt} 

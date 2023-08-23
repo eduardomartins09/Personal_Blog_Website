@@ -6,7 +6,7 @@ import getBlogsById from "@/actions/getBlogsById"
 import NewsEditCard from "@/components/News/NewsEditCard"
 
 interface IParams {
-  editId: string, 
+  editId: string
 }
 
 const EditPage = async ({ params }: {params: IParams}) => {

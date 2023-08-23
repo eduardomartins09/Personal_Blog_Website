@@ -6,10 +6,10 @@ import { useSession, signOut } from 'next-auth/react'
 import { Menu, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
-import CustomButton from '../GlobalComponents/Buttons/CustomButton'
-
 import { AiFillSetting, AiOutlineLogout } from 'react-icons/ai'
 import { MdOutlineCreate } from 'react-icons/md'
+
+import CustomButton from '../GlobalComponents/Buttons/CustomButton'
 
 const MenuProfileNavbar = () => {
   const { data: session } = useSession()
@@ -20,7 +20,7 @@ const MenuProfileNavbar = () => {
         <Menu as='div' className='relative'>
           <Menu.Button>
             {session?.user?.image ? (
-              <div className='relative h-10 w-10 sm:h-12 sm:w-12'>
+              <div className='relative h-8 w-8 sm:h-10 sm:w-10'>
                 <Image
                   src={session?.user?.image}
                   alt={session?.user?.name || "profile-image"}
@@ -48,7 +48,7 @@ const MenuProfileNavbar = () => {
             leaveFrom='transform scale-100 opacity-100'
             leaveTo='transform scale-95 opacity-0'
           >
-            <Menu.Items className='bg-slate-800 absolute right-0 mt-1 flex w-72 sm:w-96 origin-top-right flex-col rounded-xl py-6 text-white shadow-lg focus:outline-none'>
+            <Menu.Items className='bg-white absolute right-0 mt-1 flex w-60 sm:w-96 origin-top-right flex-col rounded-xl py-6 text-black shadow-lg focus:outline-none'>
               <div className='mb-2 flex gap-4 px-6 text-sm'>
                 {session?.user?.image ? (
                   <div className='absolute h-10 w-10'>
@@ -71,10 +71,10 @@ const MenuProfileNavbar = () => {
                   </span>
                 )}
                 <div className='ml-14 break-all'>
-                  <p className='font-medium text-stone-600'>
+                  <p className='font-medium text-stone-800'>
                     {session?.user?.name || 'User name'}
                   </p>
-                  <p className='text-stone-400'>{session?.user?.email}</p>
+                  <p className='text-stone-600'>{session?.user?.email}</p>
                 </div>
               </div>
               {session?.user?.role === "admin" && (
@@ -84,10 +84,10 @@ const MenuProfileNavbar = () => {
                       href='/blogs/create-blog'
                       className={clsx(
                         active && 'bg-stone-700/50',
-                        'inline-flex items-center gap-6 px-[34px] py-2 text-sm text-stone-400'
+                        'inline-flex items-center gap-6 px-[34px] py-2 text-sm text-stone-600'
                       )}
                     >
-                      <MdOutlineCreate className='h-5 w-5 text-stone-400' />
+                      <MdOutlineCreate className='h-5 w-5' />
                       <span>Create New Blog</span>
                     </Link>
                   )}
@@ -99,10 +99,10 @@ const MenuProfileNavbar = () => {
                     href='/account'
                     className={clsx(
                       active && 'bg-stone-700/50',
-                      'inline-flex items-center gap-6 px-[34px] py-2 text-sm text-stone-400'
+                      'inline-flex items-center gap-6 px-[34px] py-2 text-sm text-stone-600'
                     )}
                   >
-                    <AiFillSetting className='h-5 w-5 text-stone-400' />
+                    <AiFillSetting className='h-5 w-5' />
                     <span>Manage Account</span>
                   </Link>
                 )}
@@ -112,11 +112,11 @@ const MenuProfileNavbar = () => {
                   <button
                     className={clsx(
                       active && 'bg-stone-700/50',
-                      'inline-flex items-center gap-6 px-[34px] py-2 text-sm text-stone-400'
+                      'inline-flex items-center gap-6 px-[34px] py-2 text-sm text-stone-600'
                     )}
                     onClick={() => signOut()}
                   >
-                    <AiOutlineLogout className='h-5 w-5 text-stone-400' />
+                    <AiOutlineLogout className='h-5 w-5' />
                     <span>Sign Out</span>
                   </button>
                 )}
@@ -125,12 +125,15 @@ const MenuProfileNavbar = () => {
           </Transition>
         </Menu>
       ) : (
-        <Link href="/auth/login">
-          <CustomButton
-            title='Login / Register'
-            btnType='button'
-            containerStyles='text-black rounded-full bg-gray-300 py-2 px-4 hover:bg-slate-800 hover:text-white'
-          />
+        <Link href="/auth/login">                  
+          <div className='relative h-8 w-8'>
+            <Image
+              src={"https://res.cloudinary.com/dbiffor7h/image/upload/f_auto,q_auto/rvbjadkse4u66wotcbv0"}
+              alt={"profile-image"}
+              className='inline-block border-2 border-black rounded-full p-1'
+              fill
+            />
+          </div>                
         </Link>
       )}
     </>

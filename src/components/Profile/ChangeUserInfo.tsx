@@ -67,13 +67,13 @@ const ChangeUserInfo = ({ name, image }: InitialStateProps) => {
   }
 
   return (
-    <section className='py-12 px-8'>     
+    <section className='py-12'>     
       <div className="my-6">
         <h2 className="text-2xl font-medium mb-4">Do you want to change your image or name profile ?</h2>
         <CustomButton
           title={`${changeOpen ? 'Click here to close change menu' : 'Click here to open change menu'}`}
           btnType='button'
-          containerStyles='border-2 border-gray-700 p-4 text-lg font-semibold rounded-full w-full hover:bg-gray-700 hover:text-white'
+          containerStyles='border-2 border-gray-700 p-4 text-lg font-semibold rounded-full w-full hover:bg-gray-100'
           handleClick={() => setChangeOpen(!changeOpen)}
         />           
       </div>
@@ -83,11 +83,11 @@ const ChangeUserInfo = ({ name, image }: InitialStateProps) => {
             <ImageUpload value={state.image || ""} onChange={(value) => setCustomValue('image', value)} />
           </div>
           <div className='flex flex-col justify-center  mx-auto gap-2 mt-4'>
-              <Input placeholder='Name' id='name' type='text' value={state.name} name='name' onChange={handleChange} containerStyles={"px-4 py-2 rounded-xl"} />
+              <Input placeholder='Name' id='name' type='text' value={state.name} name='name' onChange={handleChange} containerStyles={"bg-light-white px-4 py-2 rounded-xl"} />
               <CustomButton
                 title='Submit'
                 btnType='submit'
-                containerStyles='border-2 border-gray-700 p-4 text-lg font-semibold rounded-full w-full hover:bg-gray-700 hover:text-white'
+                containerStyles='border-2 border-gray-700 p-4 text-lg font-semibold rounded-full w-full hover:bg-gray-100 hover:text-white'
               />
           </div>
         </form>

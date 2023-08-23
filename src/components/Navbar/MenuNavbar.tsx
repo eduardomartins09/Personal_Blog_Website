@@ -6,8 +6,6 @@ import { useRouter } from 'next/navigation'
 import { BsChevronDown, BsImageFill, BsReverseLayoutTextSidebarReverse, BsPerson } from "react-icons/bs"
 import { RiDashboardFill } from "react-icons/ri"
 
-import SocialLinks from '../GlobalComponents/Links/SocialLinks'
-
 interface MenuNavBarProps {
     navOpen: boolean
     setNavOpen: Dispatch<SetStateAction<boolean>>   
@@ -47,14 +45,14 @@ const MenuNavbar = ({ navOpen, setNavOpen }: MenuNavBarProps) => {
 
   return (
     <nav>               
-        <ul className="pt-2 px-4">
+        <ul className="mt-5">
             {Menus.map((menu, index) => (
-                <div key={index}>
-                    <li className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2  hover:bg-light-white rounded-md mt-3`} onClick={() => goToSomePlace(`${menu.submenu ? "not" : menu.goTo}`)}>
+                <div key={index} className='border-y-[1px] border-y-[rgba(0, 0, 0, 0.17)]'>
+                    <li className={`text-gray-500 text-sm flex items-center gap-x-4 cursor-pointer px-4 py-3 hover:bg-gray-600 hover:text-white rounded-md`} onClick={() => goToSomePlace(`${menu.submenu ? "not" : menu.goTo}`)}>
                         <span className="text-2xl block float-left">
                             {menu.icon ? menu.icon : <RiDashboardFill />}
                         </span>
-                        <span className={`text-base font-medium flex-1 duration-200 ${!navOpen && "hidden"}`}>
+                        <span className={`text-base font-semibold flex-1 duration-200 ${!navOpen && "hidden"}`}>
                             {menu.title}
                         </span>
                         {menu.submenu && navOpen && (
@@ -64,7 +62,7 @@ const MenuNavbar = ({ navOpen, setNavOpen }: MenuNavBarProps) => {
                     {menu.submenu && submenuOpen && navOpen && (
                         <ul>
                             {menu.submenuItems.map((submenuItem, index) => (
-                                <li key={index} className={`text-gray-300 uppercase text-sm flex items-center gap-x-4 cursor-pointer p-2 px-5 hover:bg-light-white rounded-md`} onClick={() => goToSomePlace(`${menu.submenuItems ? submenuItem.goTo : ""}`)}>
+                                <li key={index} className={`text-gray-500 uppercase text-sm font-semibold flex items-center gap-x-4 cursor-pointer p-2 px-5 hover:bg-gray-600 hover:text-white rounded-md`} onClick={() => goToSomePlace(`${menu.submenuItems ? submenuItem.goTo : ""}`)}>
                                     {submenuItem.title}
                                 </li>
                             ))}
@@ -73,9 +71,6 @@ const MenuNavbar = ({ navOpen, setNavOpen }: MenuNavBarProps) => {
                 </div>
             ))}
         </ul>
-        <div className='px-4 my-8 mx-auto'>
-            <SocialLinks />
-        </div>
     </nav>
   )
 }

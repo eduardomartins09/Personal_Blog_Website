@@ -40,7 +40,9 @@ const SignIn = ({ callbackUrl, session }) => {
     
     if (res?.msg) {
       toast.success(res?.msg)
-      router.push("/")
+      setTimeout(() => {
+        router.push("/")
+      }, 2000)
     } 
   }
 
@@ -50,17 +52,17 @@ const SignIn = ({ callbackUrl, session }) => {
         <h1 className="text-2xl bg-red-600 p-4">Login</h1>
         <Form action={handleCredentialsLogin}>
             <div className="flex flex-col max-w-[500px] justify-center mx-auto gap-2 p-8">
-                <Input placeholder="Email" name="email" id="email" type="email" containerStyles={"px-4 py-2 rounded-xl"} />
-                <Input placeholder="Password" name="password" id="password" type="password" containerStyles={"px-4 py-2 rounded-xl"} />
-                <ButtonForm value="Login" className="my-4 border-2 border-gray-700 p-4 text-lg font-semibold rounded-full w-full hover:bg-slate-900 hover:text-white" />
+                <Input placeholder="Email" name="email" id="email" type="email" containerStyles={"bg-light-white px-4 py-2 rounded-xl"} />
+                <Input placeholder="Password" name="password" id="password" type="password" containerStyles={"bg-light-white px-4 py-2 rounded-xl"} />
+                <ButtonForm value="Login" className="my-4 border-2 border-gray-700 p-4 text-lg font-semibold rounded-full w-full hover:bg-gray-100" />
             </div>
         </Form>
         <h2 className="text-lg">Forgot password ? <button type="button" onClick={() => setShowEmailPassword(!showEmailPassword)} className="text-red-600 underline">Click here</button></h2>
         {showEmailPassword && (
             <div className="flex flex-col max-w-[500px] justify-center mx-auto gap-2 px-8 py-2">
                 <Form action={forgotPassword}>
-                    <Input placeholder="Email" name="emailToPassword" id="emailToPassword" type="email" containerStyles={"px-4 py-2 rounded-xl"} />
-                    <ButtonForm value="Forgot Password" className="my-4 border-2 border-gray-700 p-4 text-lg font-semibold rounded-full w-full hover:bg-slate-900 hover:text-white" />
+                    <Input placeholder="Email" name="emailToPassword" id="emailToPassword" type="email" containerStyles={"bg-light-white px-4 py-2 rounded-xl"} />
+                    <ButtonForm value="Forgot Password" className="my-4 border-2 border-gray-700 p-4 text-lg font-semibold rounded-full w-full hover:bg-gray-100" />
                 </Form>
             </div>
         )}

@@ -3,8 +3,10 @@ import { redirect } from "next/navigation"
 import getBlogsByName from "@/actions/getBlogsByName"
 
 import Ads from "@/components/GlobalComponents/Ads/Ads"
-import NewsCard from "@/components/News/NewsCard"
 import ShowMore from "@/components/ShowMore/ShowMore"
+import NewsHorizontalCard from "@/components/News/NewsHorizontalCard"
+
+import { formartDateHome } from "@/utils"
 
 const SearchPage = async ({ searchParams }: { searchParams: { search: string | undefined, page: string, limit: string } }) => {
   const page = parseInt(searchParams.page) || 1
@@ -15,22 +17,18 @@ const SearchPage = async ({ searchParams }: { searchParams: { search: string | u
   const { safeBlogs, totalCount } = await getBlogsByName(informedDescription, page, limit)
    
   return (
-    <main className="p-8 bg-slate-800 text-white">
-      <div className='bg-gray-700 p-4 mb-4'>
-        <h1 className='text-2xl font-medium'>Buscando por: <span className="font-light">&apos;{informedDescription.toLowerCase()}&apos;</span></h1>
+    <main className="px-5 sm:px-20 py-8 bg-white text-black">
+      <div className="flex items-center gap-3 bg-light-white mt-16 md:mt-0">
+        <div className="bg-dark-black p-3 text-light-white text-2xl font-bold">
+          BUSCANDO POR:
+        </div>
+        <span className="uppercase text-lg">&apos;{informedDescription}&apos;</span>
       </div>
-      <div className="grid lg:grid-cols-[minmax(0,_1fr)_300px] gap-8">
+      <div className="grid lg:grid-cols-[minmax(0,_1fr)_350px] gap-8">
         <div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
-            {safeBlogs.map((blog) => (
-              <NewsCard
-                image={blog.imageSrc} 
-                headline={blog.name} 
-                date={blog.createdAt} 
-                linkId={blog.id} 
-                notSwiper={true}
-                key={blog.id}
-              />
+          <div className="grid gap-8 mt-4">
+            {safeBlogs.map((blog) => (   
+              <NewsHorizontalCard key={blog.id} link={blog.id} image={blog.imageSrc} headline={blog.name} date={formartDateHome(blog.createdAt)} />
             ))}
           </div>
           <div>

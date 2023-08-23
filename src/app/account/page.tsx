@@ -12,7 +12,7 @@ const AccountPage = async () => {
   if (!session) redirect("/auth/login")
 
   return (
-    <main className="p-8 bg-slate-800 text-white">
+    <main className="px-5 sm:px-20 py-8 bg-white text-black mt-16 md:mt-0">
       <div className="flex flex-col items-center sm:flex-row gap-8">
         <div className="rounded-full-img w-48 h-fit max-h-56 overflow-hidden">
           <Image src={session?.user?.image || "https://res.cloudinary.com/dbiffor7h/image/upload/f_auto,q_auto/rvbjadkse4u66wotcbv0"} alt="profile-image" width={1000} height={1000} className='border-0 align-middle inline-block max-w-[100%] h-auto rounded-full' />

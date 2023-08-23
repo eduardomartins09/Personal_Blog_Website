@@ -7,8 +7,6 @@ import Provider from '@/context/provider'
 
 import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer/Footer'
-import Banner from '@/components/Banner/Banner'
-import Search from '@/components/Search/Search'
 
 const lato = Lato({
   weight: ['100', '300' , '400', '700', '900'],
@@ -38,11 +36,7 @@ export default function RootLayout({
           </div>
         </noscript>
         <Provider>
-          <Navbar />        
-          <hr />
-          <Banner />
-          <hr />
-          <Search />
+          <Navbar />     
           <hr />
           {children}
           <hr />

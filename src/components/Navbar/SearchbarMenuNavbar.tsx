@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, SetStateAction, Dispatch } from "react"
-import { redirect, useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
 
 import Input from "../GlobalComponents/Input/Input"
 
@@ -10,12 +10,12 @@ import { BsSearch } from "react-icons/bs"
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-interface SearchBarNavbarProps {
+interface SearchbarMenuNavbarProps {
     navOpen: boolean
     setNavOpen: Dispatch<SetStateAction<boolean>>
 }
 
-const SearchBarNavbar = ({ navOpen, setNavOpen }: SearchBarNavbarProps) => {
+const SearchbarMenuNavbar = ({ navOpen, setNavOpen }: SearchbarMenuNavbarProps) => {
   const [search, setSearch] = useState("")
   const router = useRouter()
   
@@ -35,12 +35,12 @@ const SearchBarNavbar = ({ navOpen, setNavOpen }: SearchBarNavbarProps) => {
   }
 
   return (
-    <form className={`flex items-center rounded-md bg-light-white mt-6 ${!navOpen ? "px-2.5" : "px-4"} py-2`}>
-        <BsSearch className={`text-white text-lg block float-left cursor-pointer ${navOpen && "mr-2"}`} />
+    <form className={`flex items-center rounded-md border-2 mt-6 ${!navOpen ? "px-2.5" : "px-4"} py-2`}>
+        <BsSearch className={`text-lg block float-left cursor-pointer ${navOpen && "mr-2"}`} />
 
-        <Input placeholder='Search...' id='search' type='search' value={search} name='name' onChange={(e) => setSearch(e.target.value)} containerStyles={`text-base bg-transparent w-full text-white focus:outline-none ${!navOpen && "hidden"}`} onKeyDown={handleKeyDown} />
+        <Input placeholder='Search...' id='search' type='search' value={search} name='name' onChange={(e) => setSearch(e.target.value)} containerStyles={`text-base bg-transparent text-black w-full focus:outline-none ${!navOpen && "hidden"}`} onKeyDown={handleKeyDown} />
     </form>
   )
 }
 
-export default SearchBarNavbar
+export default SearchbarMenuNavbar

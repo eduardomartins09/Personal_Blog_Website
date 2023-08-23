@@ -4,9 +4,12 @@ import getBlogsByCategory from "@/actions/getBlogsByCategory"
 import getCategories from "@/actions/getCategories"
 
 import Ads from "@/components/GlobalComponents/Ads/Ads"
-import NewsCard from "@/components/News/NewsCard"
 import ShowMore from '@/components/ShowMore/ShowMore'
 import CustomFilter from "@/components/GlobalComponents/CustomFilter/CustomFilter"
+import NewsBigCard from "@/components/News/NewsBigCard"
+import NewsMainCard from "@/components/News/NewsMainCard"
+
+import { formartDateHome } from "@/utils"
 
 interface IParams {
     categoryName: string
@@ -28,9 +31,11 @@ const CategoryPage = async ({ params }: {params: IParams}) => {
   if (safeBlogs.length === 0) redirect("/errors?error=Category not found")
 
   return (
-    <main className="p-8 bg-slate-800 text-white">
-      <div className='bg-gray-700 p-4 mb-4'>
-        <h1 className='text-2xl font-medium capitalize'>{categoryName}</h1>
+    <main className="px-5 sm:px-20 py-8 bg-white text-black mt-16 md:mt-0">
+      <div className="flex items-center gap-3 bg-light-white mb-4">
+        <h1 className="bg-dark-black p-3 text-light-white text-2xl font-bold uppercase">
+          {categoryName}
+        </h1>     
       </div>
       <div className="grid lg:grid-cols-[minmax(0,_1fr)_300px] gap-8">
         <div className="grid items-end justify-end mb-2">
@@ -38,20 +43,22 @@ const CategoryPage = async ({ params }: {params: IParams}) => {
         </div>
         <div></div>
       </div>
-      <div className="grid lg:grid-cols-[minmax(0,_1fr)_300px] gap-8">
+      <div className="grid lg:grid-cols-[minmax(0,_1fr)_350px] gap-8">
         <div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
-            {safeBlogs.map((blog) => (
-              <NewsCard
-                image={blog.imageSrc} 
-                headline={blog.name} 
-                date={blog.createdAt} 
-                linkId={blog.id} 
-                notSwiper={true}
-                key={blog.id}
-              />
-            ))}
-          </div>
+        <div>
+            <div className="flex">
+              <NewsBigCard link={safeBlogs[2].id} image={safeBlogs[2].imageSrc} categoryName={safeBlogs[2].categoryName} headline={safeBlogs[2].name} date={formartDateHome(safeBlogs[2].createdAt)} />
+            </div>
+            <div className="grid sm:grid-cols-2 2xl:grid-cols-3 gap-8 mt-20">
+              {safeBlogs.map((blog) => (
+                <>
+                  {safeBlogs[2] !== blog && (
+                    <NewsMainCard key={blog.id} link={blog.id} image={blog.imageSrc} categoryName={blog.categoryName} headline={blog.name} date={formartDateHome(blog.createdAt)} />
+                  )}
+                </>
+              ))}    
+            </div>
+          </div>  
           <div>
             <ShowMore
               pageNumber={currentPage || 1}
